@@ -7,11 +7,14 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
+    "pods": "npx pod-install",
+    "clean-start": "watchman watch-del-all && rm -rf node_modules && yarn && yarn pods && yarn start --reset-cache",
     "test": "jest"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.71.8"
+    "react-native": "0.71.8",
+    "react-native-bootsplash": "^4.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
