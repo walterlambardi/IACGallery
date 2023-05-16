@@ -18,3 +18,6 @@
 ### Testing
 - @testing-library/react-native
 - @testing-library/jest-native
+
+### Icons
+- react-native-vector-icons
