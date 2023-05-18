@@ -1,5 +1,3 @@
-import React from 'react';
-import Badge from '../../components/Badge';
 import { StyleSheet } from 'react-native';
 import { colors } from '../../themes';
 
@@ -8,15 +6,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.brand,
   },
   headerTitleStyle: {
-    color: 'white',
+    color: colors.white,
   },
 });
 
-export const GalleryScreenOptions = () => {
+export const FavoritesScreenOptions = () => {
   return {
-    title: 'Art Institute of Chicago Gallery',
+    title: 'My Favorites',
     headerStyle: styles.headerStyle,
     headerTitleStyle: styles.headerTitleStyle,
-    headerRight: () => <Badge />,
   };
 };

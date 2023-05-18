@@ -2,7 +2,8 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Pages } from '../enums/Pages';
 import routes from './routes';
-import { GalleryScreenOptions } from './options/GalleryHeaderStyle';
+import { FavoritesScreenOptions } from './options/FavoritesScreenOptions';
+import { GalleryScreenOptions } from './options/GalleryScreenOptions';
 import { Artwork } from '../types/ArtWorkTypes';
 
 export type RootStackParams = {
@@ -29,6 +30,7 @@ const MainNavigation = () => (
     <RootStack.Screen
       name={Pages.FAVORITES}
       component={routes[Pages.FAVORITES]}
+      options={FavoritesScreenOptions}
     />
   </RootStack.Navigator>
 );
