@@ -6,4 +6,5 @@ export default {
   lightGray: '#D2D2D2',
   gray: '#999999',
   brand: '#B00836',
+  blackTransparent: '#0000000D',
 };

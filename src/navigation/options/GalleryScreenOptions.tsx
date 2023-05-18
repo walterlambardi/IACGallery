@@ -14,9 +14,10 @@ const styles = StyleSheet.create({
 
 export const GalleryScreenOptions = () => {
   return {
-    title: 'Art Institute of Chicago Gallery',
+    title: 'AIC Gallery',
     headerStyle: styles.headerStyle,
     headerTitleStyle: styles.headerTitleStyle,
     headerRight: () => <Badge />,
+    headerTitleAlign: 'center',
   };
 };

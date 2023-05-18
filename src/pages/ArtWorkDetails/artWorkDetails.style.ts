@@ -9,5 +9,6 @@ export default StyleSheet.create({
   image: {
     width: metrics.screenWidth,
     height: 400 * metrics.scaleCoefficient,
+    borderWidth: StyleSheet.hairlineWidth,
   },
 });

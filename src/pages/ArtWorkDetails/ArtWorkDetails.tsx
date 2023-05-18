@@ -40,6 +40,7 @@ const ArtWorkDetails = ({ route }: CreateAccountProps) => {
         source={{
           uri: ArtWorkImage,
         }}
+        resizeMode="contain"
         style={styles.image}
       />
       <Text>title: {title}</Text>

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FlatList, ActivityIndicator } from 'react-native';
+import { FlatList, ActivityIndicator, View } from 'react-native';
 import { Artwork } from '../../types/ArtWorkTypes';
 import ArtWorkCard from '../ArtWorkCard';
 import { Pages } from '../../enums/Pages';
@@ -10,6 +10,8 @@ import {
   useGetImageUrl,
   useResourceImageUrl,
 } from '../../hooks/useImageResourceUrl';
+import styles from './artWorkList.style';
+import { colors } from '../../themes';
 
 type NavProps = NativeStackNavigationProp<RootStackParams, Pages.GALLERY>;
 
@@ -43,6 +45,7 @@ const ArtWorkList = ({
           artWork={item}
           artWorkImage={artWorkImage}
           goToDetails={handleGoToDetails}
+          style={styles.cardStyle}
         />
       );
     },
@@ -53,7 +56,11 @@ const ArtWorkList = ({
 
   const renderActivityIndicator = useCallback(() => {
     if (isLoading) {
-      return <ActivityIndicator size="large" color="#000000" />;
+      return (
+        <View style={styles.activityIndicator}>
+          <ActivityIndicator size="large" color={colors.black} />
+        </View>
+      );
     }
     return null;
   }, [isLoading]);
@@ -68,6 +75,7 @@ const ArtWorkList = ({
       onEndReachedThreshold={0.5}
       scrollEventThrottle={16}
       ListFooterComponent={renderActivityIndicator}
+      contentContainerStyle={styles.contentContainerStyle}
     />
   );
 };

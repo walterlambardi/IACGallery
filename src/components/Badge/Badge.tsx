@@ -7,6 +7,7 @@ import { Pages } from '../../enums/Pages';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../../navigation';
+import { colors, metrics } from '../../themes';
 
 type NavProps = NativeStackNavigationProp<RootStackParams, Pages.GALLERY>;
 
@@ -29,7 +30,11 @@ const Badge = () => {
         <View style={styles.countContainer}>
           <Text style={styles.count}>{favLength}</Text>
         </View>
-        <Icon name="ios-heart-outline" size={28} color={'white'} />
+        <Icon
+          name="ios-heart-outline"
+          size={28 * metrics.scaleCoefficient}
+          color={colors.white}
+        />
       </View>
     </TouchableWithoutFeedback>
   );

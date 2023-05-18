@@ -5,7 +5,7 @@ export const useGetImageUrl = (resourceUrl: string) =>
   useCallback(
     (image: string, isFullSize: boolean = false) =>
       `${resourceUrl}/${image}/full/${
-        isFullSize ? '843' : '200'
+        isFullSize ? '843' : '400'
       },/0/default.jpg`,
     [resourceUrl],
   );
