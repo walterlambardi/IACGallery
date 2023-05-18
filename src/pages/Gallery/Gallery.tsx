@@ -4,7 +4,10 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParams } from '../../navigation';
 import { Pages } from '../../enums/Pages';
 import styles from './gallery.style';
-import { useGetGalleryArtWorksQuery } from '../../services/galleryApi';
+import {
+  galleryApi,
+  useGetGalleryArtWorksQuery,
+} from '../../services/galleryApi';
 import { useAppDispatch } from '../../store';
 import config from '../../config';
 import { setImageResourceUrl } from '../../store/favorites';
@@ -36,10 +39,15 @@ const Gallery = () => {
     }
   }, [isLoading]);
 
-  // ErrorBoundary handles error. Not the best approach but works.
+  // ErrorBoundary handles error
   if (error) {
     throw new Error("Oops, there's an issue with the API.");
   }
+
+  const handleRefresh = () => {
+    dispatch(galleryApi.util.resetApiState());
+    setPage(1);
+  };
 
   return (
     <View style={styles.container}>
@@ -53,6 +61,7 @@ const Gallery = () => {
         data={filterData || []}
         handleEndReached={handleEndReached}
         isLoading={isLoading}
+        refresh={handleRefresh}
       />
     </View>
   );

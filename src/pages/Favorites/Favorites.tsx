@@ -4,8 +4,15 @@ import ArtWorkList from '../../components/ArtWorkList';
 import { StatusBar, View } from 'react-native';
 import styles from './favorites.style';
 import { Pages } from '../../enums/Pages';
+import { RootStackParams } from '../../navigation';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const Favorites = ({ navigation }: any) => {
+export type FavoritesProps = NativeStackScreenProps<
+  RootStackParams,
+  Pages.FAVORITES
+>;
+
+const Favorites = ({ navigation }: FavoritesProps) => {
   const favorites = useFavorites();
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FlatList, ActivityIndicator, View } from 'react-native';
+import { FlatList, RefreshControl } from 'react-native';
 import { Artwork } from '../../types/ArtWorkTypes';
 import ArtWorkCard from '../ArtWorkCard';
 import { Pages } from '../../enums/Pages';
@@ -19,11 +19,13 @@ interface IArtWorkListProps {
   data: Artwork[];
   handleEndReached?: () => void;
   isLoading?: boolean;
+  refresh?: () => void;
 }
 const ArtWorkList = ({
   data,
   handleEndReached,
   isLoading = false,
+  refresh,
 }: IArtWorkListProps) => {
   const navigation = useNavigation<NavProps>();
   const resourceImgUrl = useResourceImageUrl();
@@ -54,17 +56,6 @@ const ArtWorkList = ({
 
   const keyExtractor = (item: Artwork) => `item-${item?.id}-${item?.image_id}`;
 
-  const renderActivityIndicator = useCallback(() => {
-    if (isLoading) {
-      return (
-        <View style={styles.activityIndicator}>
-          <ActivityIndicator size="large" color={colors.black} />
-        </View>
-      );
-    }
-    return null;
-  }, [isLoading]);
-
   return (
     <FlatList
       data={data}
@@ -72,10 +63,15 @@ const ArtWorkList = ({
       keyExtractor={keyExtractor}
       showsVerticalScrollIndicator={false}
       onEndReached={handleEndReached}
-      onEndReachedThreshold={0.5}
-      scrollEventThrottle={16}
-      ListFooterComponent={renderActivityIndicator}
+      onEndReachedThreshold={10}
       contentContainerStyle={styles.contentContainerStyle}
+      refreshControl={
+        <RefreshControl
+          tintColor={colors.brand}
+          refreshing={isLoading}
+          onRefresh={refresh}
+        />
+      }
     />
   );
 };
