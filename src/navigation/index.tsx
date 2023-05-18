@@ -5,6 +5,7 @@ import routes from './routes';
 import { FavoritesScreenOptions } from './options/FavoritesScreenOptions';
 import { GalleryScreenOptions } from './options/GalleryScreenOptions';
 import { Artwork } from '../types/ArtWorkTypes';
+import noHeaderOptions from './options/noHeaderOptions';
 
 export type RootStackParams = {
   [Pages.GALLERY]: undefined;
@@ -26,6 +27,7 @@ const MainNavigation = () => (
     <RootStack.Screen
       name={Pages.ARTWORK_DETAILS}
       component={routes[Pages.ARTWORK_DETAILS]}
+      options={noHeaderOptions}
     />
     <RootStack.Screen
       name={Pages.FAVORITES}

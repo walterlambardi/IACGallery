@@ -12,6 +12,7 @@ export default StyleSheet.create({
     width: '100%',
     height: 240 * metrics.scaleCoefficient,
     borderRadius: 10 * metrics.scaleCoefficient,
+    backgroundColor: colors.white,
     overflow: 'visible',
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
