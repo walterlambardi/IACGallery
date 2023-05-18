@@ -48,11 +48,11 @@ export default StyleSheet.create({
   favContainer: {
     position: 'absolute',
     alignItems: 'center',
-    top: 10 * metrics.scaleCoefficient,
-    right: 10 * metrics.scaleCoefficient,
-    width: 30 * metrics.scaleCoefficient,
-    height: 30 * metrics.scaleCoefficient,
-    borderRadius: 15 * metrics.scaleCoefficient,
+    top: 14 * metrics.scaleCoefficient,
+    right: 14 * metrics.scaleCoefficient,
+    width: 34 * metrics.scaleCoefficient,
+    height: 34 * metrics.scaleCoefficient,
+    borderRadius: 17 * metrics.scaleCoefficient,
     backgroundColor: colors.blackTransparent,
   },
   favContent: {

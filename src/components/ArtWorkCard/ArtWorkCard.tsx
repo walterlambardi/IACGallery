@@ -57,7 +57,7 @@ const ArtWorkCard = ({
             <View style={styles.favContent}>
               <Icon
                 name={favIcon}
-                size={20 * metrics.scaleCoefficient}
+                size={24 * metrics.scaleCoefficient}
                 color={colors.brand}
               />
             </View>
