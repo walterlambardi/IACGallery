@@ -1,10 +1,11 @@
 import React from 'react';
 import Badge from '../../components/Badge';
 import { StyleSheet } from 'react-native';
+import { colors } from '../../themes';
 
 const styles = StyleSheet.create({
   headerStyle: {
-    backgroundColor: '#B00836',
+    backgroundColor: colors.brand,
   },
   headerTitleStyle: {
     color: 'white',

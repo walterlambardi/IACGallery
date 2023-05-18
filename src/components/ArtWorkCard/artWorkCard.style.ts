@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { metrics } from '../../themes';
 
 export default StyleSheet.create({
   container: {
@@ -6,11 +7,11 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingVertical: 20,
+    paddingVertical: 20 * metrics.scaleCoefficient,
   },
   artWorkImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 10,
+    width: 100 * metrics.scaleCoefficient,
+    height: 100 * metrics.scaleCoefficient,
+    borderRadius: 10 * metrics.scaleCoefficient,
   },
 });

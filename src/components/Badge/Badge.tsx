@@ -19,14 +19,16 @@ const Badge = () => {
     [navigation],
   );
 
+  if (!favLength) {
+    return null;
+  }
+
   return (
     <TouchableWithoutFeedback onPress={handleNavToFavorites}>
       <View style={styles.container}>
-        {favLength > 0 && (
-          <View style={styles.countContainer}>
-            <Text style={styles.count}>{favLength}</Text>
-          </View>
-        )}
+        <View style={styles.countContainer}>
+          <Text style={styles.count}>{favLength}</Text>
+        </View>
         <Icon name="ios-heart-outline" size={28} color={'white'} />
       </View>
     </TouchableWithoutFeedback>

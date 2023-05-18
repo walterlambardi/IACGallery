@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { colors, metrics } from '../../themes';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   image: {
-    width: '100%',
-    height: 400,
+    width: metrics.screenWidth,
+    height: 400 * metrics.scaleCoefficient,
   },
 });
