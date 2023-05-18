@@ -6,7 +6,7 @@ import styles from './customFallback.style';
 const CustomFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   return (
     <View style={styles.container}>
-      <Text>{'Something went wrong:'}</Text>
+      <Text>Something went wrong:</Text>
       <Text>{error.message}</Text>
       <Button onPress={() => resetErrorBoundary()} title={'Try again'} />
     </View>
