@@ -2,32 +2,35 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Pages } from '../enums/Pages';
 import routes from './routes';
+import { GalleryScreenOptions } from './options/GalleryHeaderStyle';
+import { Artwork } from '../types/ArtWorkTypes';
 
 export type RootStackParams = {
   [Pages.GALLERY]: undefined;
-  [Pages.ARTWORK_DETAILS]: undefined;
+  [Pages.ARTWORK_DETAILS]: {
+    artWork: Artwork;
+  };
   [Pages.FAVORITES]: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParams>();
 
-const MainNavigation = () => {
-  return (
-    <RootStack.Navigator>
-      <RootStack.Screen
-        name={Pages.GALLERY}
-        component={routes[Pages.GALLERY]}
-      />
-      <RootStack.Screen
-        name={Pages.ARTWORK_DETAILS}
-        component={routes[Pages.ARTWORK_DETAILS]}
-      />
-      <RootStack.Screen
-        name={Pages.FAVORITES}
-        component={routes[Pages.FAVORITES]}
-      />
-    </RootStack.Navigator>
-  );
-};
+const MainNavigation = () => (
+  <RootStack.Navigator>
+    <RootStack.Screen
+      name={Pages.GALLERY}
+      component={routes[Pages.GALLERY]}
+      options={GalleryScreenOptions}
+    />
+    <RootStack.Screen
+      name={Pages.ARTWORK_DETAILS}
+      component={routes[Pages.ARTWORK_DETAILS]}
+    />
+    <RootStack.Screen
+      name={Pages.FAVORITES}
+      component={routes[Pages.FAVORITES]}
+    />
+  </RootStack.Navigator>
+);
 
 export default MainNavigation;

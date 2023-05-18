@@ -5,4 +5,8 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
+  image: {
+    width: '100%',
+    height: 400,
+  },
 });

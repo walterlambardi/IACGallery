@@ -21,3 +21,15 @@
 
 ### Icons
 - react-native-vector-icons
+
+### Asyncstorage
+- @react-native-async-storage/async-storage
+
+### State manager
+- react-redux
+- redux-persist
+- @reduxjs/toolkit
+
+### Debug
+- react-native-flipper
+- redux-flipper
