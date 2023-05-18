@@ -15,7 +15,9 @@ const NotResults = () => (
 const Favorites = () => {
   const favorites = useFavorites();
   return favorites.length > 0 ? (
-    <ArtWorkList data={favorites} />
+    <View style={styles.container}>
+      <ArtWorkList data={favorites} />
+    </View>
   ) : (
     <NotResults />
   );
