@@ -1,5 +1,5 @@
 import React from 'react';
-import Badge from '../../components/Badge';
+import FavoritesBadge from '../../components/FavoritesBadge';
 import { StyleSheet } from 'react-native';
 import { colors } from '../../themes';
 import { RootStackParams } from '..';
@@ -20,7 +20,7 @@ export const GalleryScreenOptions: GalleryScreenOptionsProps = () => {
     title: 'AIC Gallery',
     headerStyle: styles.headerStyle,
     headerTitleStyle: styles.headerTitleStyle,
-    headerRight: () => <Badge />,
+    headerRight: () => <FavoritesBadge />,
     headerTitleAlign: 'center',
     headerShadowVisible: true,
   };

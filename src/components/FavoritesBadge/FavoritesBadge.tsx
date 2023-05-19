@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
-import styles from './badge.style';
+import styles from './favoritesBadge.style';
 import { useFavoritesLength } from '../../hooks/useFavoritesHooks';
 import { useNavigation } from '@react-navigation/native';
 import { Pages } from '../../enums/Pages';
@@ -11,7 +11,7 @@ import { colors, metrics } from '../../themes';
 
 type NavProps = NativeStackNavigationProp<RootStackParams, Pages.GALLERY>;
 
-const Badge = () => {
+const FavoritesBadge = () => {
   const favLength = useFavoritesLength();
   const navigation = useNavigation<NavProps>();
 
@@ -40,4 +40,4 @@ const Badge = () => {
   );
 };
 
-export default Badge;
+export default FavoritesBadge;
