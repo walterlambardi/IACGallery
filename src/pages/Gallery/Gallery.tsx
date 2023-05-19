@@ -21,7 +21,12 @@ export type CreateAccountProps = NativeStackScreenProps<
 const Gallery = () => {
   const dispatch = useAppDispatch();
   const [page, setPage] = useState(1);
-  const { data: results, isFetching, error } = useGetGalleryArtWorksQuery(page);
+  const {
+    data: results,
+    isFetching,
+    error,
+    isLoading,
+  } = useGetGalleryArtWorksQuery(page);
 
   useEffect(() => {
     dispatch(setImageResourceUrl(results?.iiif_url || config.BASE_IMAGE_URL));
@@ -41,7 +46,7 @@ const Gallery = () => {
 
   // ErrorBoundary handles error
   if (error) {
-    throw new Error("Oops, there's an issue with the API.");
+    throw new Error('Oops, there seems to be an issue with the API.');
   }
 
   const handleRefresh = () => {
@@ -61,6 +66,7 @@ const Gallery = () => {
         data={filterData || []}
         handleEndReached={handleEndReached}
         isFetching={isFetching}
+        isLoading={isLoading}
         refresh={handleRefresh}
       />
     </View>

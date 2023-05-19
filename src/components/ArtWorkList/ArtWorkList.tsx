@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FlatList } from 'react-native';
+import { ActivityIndicator, FlatList } from 'react-native';
 import { Artwork } from '../../types/ArtWorkTypes';
 import ArtWorkCard from '../ArtWorkCard';
 import { Pages } from '../../enums/Pages';
@@ -11,6 +11,7 @@ import {
   useResourceImageUrl,
 } from '../../hooks/useImageResourceUrl';
 import styles from './artWorkList.style';
+import { colors } from '../../themes';
 
 type NavProps = NativeStackNavigationProp<RootStackParams, Pages.GALLERY>;
 
@@ -18,12 +19,14 @@ interface IArtWorkListProps {
   data: Artwork[];
   handleEndReached?: () => void;
   isFetching?: boolean;
+  isLoading?: boolean;
   refresh?: () => void;
 }
 const ArtWorkList = ({
   data,
   handleEndReached,
   isFetching = false,
+  isLoading = false,
   refresh,
 }: IArtWorkListProps) => {
   const navigation = useNavigation<NavProps>();
@@ -55,14 +58,24 @@ const ArtWorkList = ({
 
   const keyExtractor = (item: Artwork) => `item-${item?.id}-${item?.image_id}`;
 
+  if (isLoading) {
+    return (
+      <ActivityIndicator
+        size={'large'}
+        style={styles.activityIndicator}
+        color={colors.brand}
+      />
+    );
+  }
   return (
     <FlatList
       data={data}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
+      showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.contentContainerStyle}
       onEndReached={handleEndReached}
-      onEndReachedThreshold={10}
+      onEndReachedThreshold={0.6}
       onRefresh={refresh}
       refreshing={isFetching}
     />

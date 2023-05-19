@@ -13,7 +13,7 @@ const App = () => (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer
-          onReady={() => RNBootSplash.hide({ fade: true, duration: 500 })}>
+          onReady={() => RNBootSplash.hide({ fade: true, duration: 1000 })}>
           <MainNavigation />
         </NavigationContainer>
       </PersistGate>
