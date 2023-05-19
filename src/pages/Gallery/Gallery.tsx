@@ -21,7 +21,7 @@ export type CreateAccountProps = NativeStackScreenProps<
 const Gallery = () => {
   const dispatch = useAppDispatch();
   const [page, setPage] = useState(1);
-  const { data: results, isLoading, error } = useGetGalleryArtWorksQuery(page);
+  const { data: results, isFetching, error } = useGetGalleryArtWorksQuery(page);
 
   useEffect(() => {
     dispatch(setImageResourceUrl(results?.iiif_url || config.BASE_IMAGE_URL));
@@ -34,10 +34,10 @@ const Gallery = () => {
   }, [results]);
 
   const handleEndReached = useCallback(() => {
-    if (!isLoading) {
+    if (!isFetching) {
       setPage(prev => prev + 1);
     }
-  }, [isLoading]);
+  }, [isFetching]);
 
   // ErrorBoundary handles error
   if (error) {
@@ -60,7 +60,7 @@ const Gallery = () => {
       <ArtWorkList
         data={filterData || []}
         handleEndReached={handleEndReached}
-        isLoading={isLoading}
+        isFetching={isFetching}
         refresh={handleRefresh}
       />
     </View>

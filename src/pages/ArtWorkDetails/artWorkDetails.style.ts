@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.grayLight,
     marginTop: -32 * metrics.scaleCoefficient,
     borderTopLeftRadius: 32 * metrics.scaleCoefficient,
     borderTopRightRadius: 32 * metrics.scaleCoefficient,
@@ -50,7 +50,7 @@ export default StyleSheet.create({
     left: 20 * metrics.scaleCoefficient,
     width: 42 * metrics.scaleCoefficient,
     height: 42 * metrics.scaleCoefficient,
-    backgroundColor: colors.white,
+    backgroundColor: colors.grayLight,
     borderRadius: 14 * metrics.scaleCoefficient,
     shadowColor: colors.black,
     shadowOffset: {
@@ -62,7 +62,7 @@ export default StyleSheet.create({
     elevation: 5,
   },
   backIcon: {
-    color: colors.brand,
+    color: colors.black,
     fontSize: 32 * metrics.scaleCoefficient,
   },
   rightIconContainer: {
@@ -77,7 +77,7 @@ export default StyleSheet.create({
     right: 20 * metrics.scaleCoefficient,
     width: 42 * metrics.scaleCoefficient,
     height: 42 * metrics.scaleCoefficient,
-    backgroundColor: colors.white,
+    backgroundColor: colors.grayLight,
     borderRadius: 14 * metrics.scaleCoefficient,
     shadowColor: colors.black,
     shadowOffset: {

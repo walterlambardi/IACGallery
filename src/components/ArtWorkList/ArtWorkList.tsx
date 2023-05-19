@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FlatList, RefreshControl } from 'react-native';
+import { FlatList } from 'react-native';
 import { Artwork } from '../../types/ArtWorkTypes';
 import ArtWorkCard from '../ArtWorkCard';
 import { Pages } from '../../enums/Pages';
@@ -11,20 +11,19 @@ import {
   useResourceImageUrl,
 } from '../../hooks/useImageResourceUrl';
 import styles from './artWorkList.style';
-import { colors } from '../../themes';
 
 type NavProps = NativeStackNavigationProp<RootStackParams, Pages.GALLERY>;
 
 interface IArtWorkListProps {
   data: Artwork[];
   handleEndReached?: () => void;
-  isLoading?: boolean;
+  isFetching?: boolean;
   refresh?: () => void;
 }
 const ArtWorkList = ({
   data,
   handleEndReached,
-  isLoading = false,
+  isFetching = false,
   refresh,
 }: IArtWorkListProps) => {
   const navigation = useNavigation<NavProps>();
@@ -61,17 +60,19 @@ const ArtWorkList = ({
       data={data}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
-      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.contentContainerStyle}
       onEndReached={handleEndReached}
       onEndReachedThreshold={10}
-      contentContainerStyle={styles.contentContainerStyle}
-      refreshControl={
-        <RefreshControl
-          tintColor={colors.brand}
-          refreshing={isLoading}
-          onRefresh={refresh}
-        />
-      }
+      //showsVerticalScrollIndicator={false}
+      // refreshControl={
+      //   <RefreshControl
+      //     tintColor={colors.brand}
+      //     refreshing={isFetching}
+      //     onRefresh={refresh}
+      //   />
+      // }
+      onRefresh={refresh}
+      refreshing={isFetching}
     />
   );
 };

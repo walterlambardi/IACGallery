@@ -22,6 +22,7 @@ export const GalleryScreenOptions: GalleryScreenOptionsProps = () => {
     headerTitleStyle: styles.headerTitleStyle,
     headerRight: () => <Badge />,
     headerTitleAlign: 'center',
+    headerShadowVisible: true,
   };
 };
 

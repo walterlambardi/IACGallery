@@ -66,7 +66,7 @@ const ArtWorkDetails = ({ navigation, route }: CreateAccountProps) => {
               <Icon
                 name={isFav ? 'heart' : 'heart-outline'}
                 style={styles.rightIcon}
-                color={colors.brand}
+                color={isFav ? colors.brand : colors.black}
               />
             </View>
           </TouchableWithoutFeedback>

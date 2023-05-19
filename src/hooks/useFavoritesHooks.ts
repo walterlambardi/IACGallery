@@ -1,7 +1,7 @@
 import { useAppSelector } from '../store';
 
 export const useFavorites = () =>
-  useAppSelector(state => state.favorites.favorites);
+  useAppSelector(state => [...state.favorites.favorites].reverse());
 
 export const useIsFavorite = (id: number) =>
   useAppSelector(state =>

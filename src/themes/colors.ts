@@ -8,4 +8,6 @@ export default {
   brand: '#B00836',
   blackTransparent: '#0000000D',
   blackLight: '#00000099',
+  backgroundColor: '#F5F5F5',
+  grayLight: '#F2F2F2',
 };

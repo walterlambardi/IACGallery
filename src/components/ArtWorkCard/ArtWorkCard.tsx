@@ -43,7 +43,7 @@ const ArtWorkCard = ({
           style={styles.artWorkImage}
           resizeMode="cover">
           <View style={styles.content}>
-            <Text style={styles.artWorktTitle} numberOfLines={2}>
+            <Text style={styles.artWorktTitle} numberOfLines={3}>
               {title}
             </Text>
             <Text style={styles.artist} numberOfLines={1}>

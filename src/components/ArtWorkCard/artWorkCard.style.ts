@@ -28,9 +28,9 @@ export default StyleSheet.create({
   },
   artWorktTitle: {
     color: colors.white,
-    fontSize: 16 * metrics.scaleCoefficient,
-    lineHeight: 18 * metrics.scaleCoefficient,
-    fontWeight: '600',
+    fontSize: 22 * metrics.scaleCoefficient,
+    lineHeight: 26 * metrics.scaleCoefficient,
+    fontWeight: '900',
     textShadowColor: colors.black,
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 40,
