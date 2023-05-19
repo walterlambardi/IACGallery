@@ -63,14 +63,6 @@ const ArtWorkList = ({
       contentContainerStyle={styles.contentContainerStyle}
       onEndReached={handleEndReached}
       onEndReachedThreshold={10}
-      //showsVerticalScrollIndicator={false}
-      // refreshControl={
-      //   <RefreshControl
-      //     tintColor={colors.brand}
-      //     refreshing={isFetching}
-      //     onRefresh={refresh}
-      //   />
-      // }
       onRefresh={refresh}
       refreshing={isFetching}
     />
