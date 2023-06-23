@@ -1,6 +1,5 @@
 import {
   Animated,
-  Button,
   StatusBar,
   Text,
   TouchableWithoutFeedback,
@@ -26,6 +25,7 @@ import copies from '../../utils/copies';
 import FavIcon from '../../components/FavIcon';
 import BackIcon from '../../components/BackIcon';
 import Share from 'react-native-share';
+import Button from '../../components/Button';
 
 export type CreateAccountProps = NativeStackScreenProps<
   RootStackParams,
@@ -117,7 +117,7 @@ const ArtWorkDetails = ({ route }: CreateAccountProps) => {
           <Text style={styles.provenance}>{provenance_text}</Text>
         )}
 
-        <Button title="Share" onPress={onShare} />
+        <Button title="Share" onPress={onShare} buttonStyle={styles.shareBtn} />
 
         <Text style={styles.provenance}>{copies.artWorkMockDetail}</Text>
         <Text style={styles.provenance}>{copies.artWorkMockDetail}</Text>

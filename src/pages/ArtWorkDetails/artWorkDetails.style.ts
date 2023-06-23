@@ -65,9 +65,12 @@ export default StyleSheet.create({
     fontSize: 12 * metrics.scaleCoefficient,
     lineHeight: 14 * metrics.scaleCoefficient,
     color: colors.gray,
-    paddingBottom: 10 * metrics.scaleCoefficient,
+    paddingBottom: 20 * metrics.scaleCoefficient,
   },
   space: {
     height: 40 * metrics.scaleCoefficient,
+  },
+  shareBtn: {
+    marginBottom: 20 * metrics.scaleCoefficient,
   },
 });
