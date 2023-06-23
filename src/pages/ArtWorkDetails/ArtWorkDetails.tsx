@@ -1,11 +1,12 @@
 import {
   Animated,
+  Button,
   StatusBar,
   Text,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParams } from '../../navigation';
 import { Pages } from '../../enums/Pages';
@@ -24,6 +25,7 @@ import ImageModal from '../../components/ImageModal';
 import copies from '../../utils/copies';
 import FavIcon from '../../components/FavIcon';
 import BackIcon from '../../components/BackIcon';
+import Share from 'react-native-share';
 
 export type CreateAccountProps = NativeStackScreenProps<
   RootStackParams,
@@ -41,6 +43,23 @@ const ArtWorkDetails = ({ route }: CreateAccountProps) => {
   const isFav = useIsFavorite(id);
 
   const handleToggleModal = () => setModalVisible(!modalVisible);
+
+  const onShare = useCallback(async () => {
+    try {
+      const result = await Share.open({
+        title: 'This is amazing',
+        message: `Hey! look a this picture \n${title}`,
+        url: artWorkImage,
+      });
+      if (result.success) {
+        console.log('Success shared');
+      } else {
+        console.log('Error on shared');
+      }
+    } catch (error: any) {
+      console.error(error.message);
+    }
+  }, [artWorkImage, title]);
 
   return (
     <View style={styles.container}>
@@ -78,6 +97,7 @@ const ArtWorkDetails = ({ route }: CreateAccountProps) => {
           </>
         </Animated.View>
       </TouchableWithoutFeedback>
+
       <Animated.ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
@@ -97,11 +117,14 @@ const ArtWorkDetails = ({ route }: CreateAccountProps) => {
           <Text style={styles.provenance}>{provenance_text}</Text>
         )}
 
+        <Button title="Share" onPress={onShare} />
+
         <Text style={styles.provenance}>{copies.artWorkMockDetail}</Text>
         <Text style={styles.provenance}>{copies.artWorkMockDetail}</Text>
         <Text style={styles.provenance}>{copies.artWorkMockDetail}</Text>
         <View style={styles.space} />
       </Animated.ScrollView>
+
       <ImageModal
         image={artWorkImage}
         visible={modalVisible}
