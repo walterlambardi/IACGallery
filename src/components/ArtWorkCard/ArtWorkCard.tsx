@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,12 +7,9 @@ import {
   ImageBackground,
 } from 'react-native';
 import styles from './artWorkCard.style';
-import { toggleIsFavorite } from '../../store/favorites';
-import { useDispatch } from 'react-redux';
 import { useIsFavorite } from '../../hooks/useFavoritesHooks';
 import { Artwork } from '../../types/ArtWorkTypes';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { colors, metrics } from '../../themes';
+import FavIcon from '../FavIcon';
 
 interface IArtWorkProps {
   artWork: Artwork;
@@ -27,12 +24,11 @@ const ArtWorkCard = ({
   goToDetails,
   style,
 }: IArtWorkProps) => {
-  const dispatch = useDispatch();
   const { id, title, artist_display } = artWork;
   const isFav = useIsFavorite(id);
+  const [imgError, setImgError] = useState(false);
 
-  const favIcon = isFav ? 'ios-heart' : 'ios-heart-outline';
-  return (
+  return !imgError ? (
     <TouchableWithoutFeedback onPress={goToDetails}>
       <View style={[styles.container, style]}>
         <ImageBackground
@@ -41,7 +37,8 @@ const ArtWorkCard = ({
           }}
           imageStyle={styles.artWorkImageStyle}
           style={styles.artWorkImage}
-          resizeMode="cover">
+          resizeMode="cover"
+          onError={() => setImgError(true)}>
           <View style={styles.content}>
             <Text style={styles.artWorktTitle} numberOfLines={3}>
               {title}
@@ -51,21 +48,15 @@ const ArtWorkCard = ({
             </Text>
           </View>
         </ImageBackground>
-        <View style={styles.favContainer}>
-          <TouchableWithoutFeedback
-            onPress={() => dispatch(toggleIsFavorite(artWork))}>
-            <View style={styles.favContent}>
-              <Icon
-                name={favIcon}
-                size={24 * metrics.scaleCoefficient}
-                color={colors.brand}
-              />
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
+        <FavIcon
+          artWork={artWork}
+          isFav={isFav}
+          style={styles.favContainer}
+          iconStyle={styles.favIcon}
+        />
       </View>
     </TouchableWithoutFeedback>
-  );
+  ) : null;
 };
 
 export default ArtWorkCard;

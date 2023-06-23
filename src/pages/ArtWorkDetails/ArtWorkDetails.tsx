@@ -19,20 +19,18 @@ import {
   imageOverlarOpacity,
   titleOpacity,
 } from './artWorkDetails.animations';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { toggleIsFavorite } from '../../store/favorites';
-import { useDispatch } from 'react-redux';
 import { useIsFavorite } from '../../hooks/useFavoritesHooks';
-import { colors } from '../../themes';
 import ImageModal from '../../components/ImageModal';
 import copies from '../../utils/copies';
+import FavIcon from '../../components/FavIcon';
+import BackIcon from '../../components/BackIcon';
 
 export type CreateAccountProps = NativeStackScreenProps<
   RootStackParams,
   Pages.ARTWORK_DETAILS
 >;
 
-const ArtWorkDetails = ({ navigation, route }: CreateAccountProps) => {
+const ArtWorkDetails = ({ route }: CreateAccountProps) => {
   const [modalVisible, setModalVisible] = useState(false);
   const { artWork } = route.params;
   const { id, title, image_id, artist_display, provenance_text } = artWork;
@@ -40,7 +38,6 @@ const ArtWorkDetails = ({ navigation, route }: CreateAccountProps) => {
   const getImageUrl = useGetImageUrl(resourceImgUrl);
   const artWorkImage = getImageUrl(image_id, true);
   const scrollY = useRef(new Animated.Value(0)).current;
-  const dispatch = useDispatch();
   const isFav = useIsFavorite(id);
 
   const handleToggleModal = () => setModalVisible(!modalVisible);
@@ -55,21 +52,8 @@ const ArtWorkDetails = ({ navigation, route }: CreateAccountProps) => {
       <TouchableWithoutFeedback onPress={handleToggleModal}>
         <Animated.View
           style={[styles.header, { height: headerHeightProgress(scrollY) }]}>
-          <TouchableWithoutFeedback onPress={navigation.goBack}>
-            <View style={styles.backIconContainer}>
-              <Icon name="chevron-left" style={styles.backIcon} />
-            </View>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            onPress={() => dispatch(toggleIsFavorite(artWork))}>
-            <View style={styles.rightIconContainer}>
-              <Icon
-                name={isFav ? 'heart' : 'heart-outline'}
-                style={styles.rightIcon}
-                color={isFav ? colors.brand : colors.black}
-              />
-            </View>
-          </TouchableWithoutFeedback>
+          <BackIcon />
+          <FavIcon artWork={artWork} isFav={isFav} />
           <Animated.Text
             numberOfLines={1}
             style={[styles.headerTitle, { opacity: titleOpacity(scrollY) }]}>

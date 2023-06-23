@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import { colors, metrics } from '../../themes';
-import { isAndroid } from '../../utils/platformUtils';
 
 export const HEADER_HEIGHT = 400 * metrics.scaleCoefficient;
 
@@ -37,59 +36,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     zIndex: 3,
     color: colors.white,
-  },
-  backIconContainer: {
-    zIndex: 9,
-    position: 'absolute',
-    alignContent: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: isAndroid
-      ? 54 * metrics.scaleCoefficient
-      : 52 * metrics.scaleCoefficient,
-    left: 20 * metrics.scaleCoefficient,
-    width: 42 * metrics.scaleCoefficient,
-    height: 42 * metrics.scaleCoefficient,
-    backgroundColor: colors.grayLight,
-    borderRadius: 14 * metrics.scaleCoefficient,
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 6,
-    elevation: 5,
-  },
-  backIcon: {
-    color: colors.black,
-    fontSize: 32 * metrics.scaleCoefficient,
-  },
-  rightIconContainer: {
-    zIndex: 9,
-    position: 'absolute',
-    alignContent: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: isAndroid
-      ? 54 * metrics.scaleCoefficient
-      : 52 * metrics.scaleCoefficient,
-    right: 20 * metrics.scaleCoefficient,
-    width: 42 * metrics.scaleCoefficient,
-    height: 42 * metrics.scaleCoefficient,
-    backgroundColor: colors.grayLight,
-    borderRadius: 14 * metrics.scaleCoefficient,
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 6,
-    elevation: 5,
-  },
-  rightIcon: {
-    fontSize: 24 * metrics.scaleCoefficient,
   },
   overlay: {
     position: 'absolute',

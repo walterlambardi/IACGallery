@@ -55,8 +55,7 @@ export default StyleSheet.create({
     borderRadius: 17 * metrics.scaleCoefficient,
     backgroundColor: colors.blackTransparent,
   },
-  favContent: {
-    flex: 1,
-    justifyContent: 'center',
+  favIcon: {
+    fontSize: 18 * metrics.scaleCoefficient,
   },
 });
