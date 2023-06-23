@@ -15,7 +15,6 @@ export default StyleSheet.create({
     left: 20 * metrics.scaleCoefficient,
     width: 40 * metrics.scaleCoefficient,
     height: 40 * metrics.scaleCoefficient,
-    borderRadius: 14 * metrics.scaleCoefficient,
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -31,11 +30,11 @@ export default StyleSheet.create({
   },
   blurView: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: 14 * metrics.scaleCoefficient,
+    borderRadius: 8 * metrics.scaleCoefficient,
   },
   androidBlurView: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: 14 * metrics.scaleCoefficient,
+    borderRadius: 8 * metrics.scaleCoefficient,
     backgroundColor: '#rgba(255, 255, 255, 0.4)',
   },
 });

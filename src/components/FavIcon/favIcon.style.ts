@@ -29,11 +29,11 @@ export default StyleSheet.create({
   },
   blurView: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: 14 * metrics.scaleCoefficient,
+    borderRadius: 8 * metrics.scaleCoefficient,
   },
   androidBlurView: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: 14 * metrics.scaleCoefficient,
+    borderRadius: 8 * metrics.scaleCoefficient,
     backgroundColor: '#rgba(255, 255, 255, 0.4)',
   },
 });
