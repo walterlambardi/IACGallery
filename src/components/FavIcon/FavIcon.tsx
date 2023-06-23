@@ -1,5 +1,11 @@
 import React from 'react';
-import { TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
+import {
+  StyleProp,
+  TextStyle,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './favIcon.style';
 import { toggleIsFavorite } from '../../store/favorites';
@@ -13,7 +19,7 @@ interface Props {
   artWork: Artwork;
   isFav: boolean;
   style?: ViewStyle;
-  iconStyle?: ViewStyle;
+  iconStyle?: StyleProp<TextStyle>;
 }
 
 const FavIcon = ({ artWork, isFav, style, iconStyle }: Props) => {
@@ -26,7 +32,7 @@ const FavIcon = ({ artWork, isFav, style, iconStyle }: Props) => {
           {isiOS && (
             <BlurView
               blurAmount={5}
-              blurType={'regular'}
+              blurType={'light'}
               style={styles.blurView}
             />
           )}
