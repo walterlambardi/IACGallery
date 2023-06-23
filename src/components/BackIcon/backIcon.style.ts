@@ -15,14 +15,6 @@ export default StyleSheet.create({
     left: 20 * metrics.scaleCoefficient,
     width: 40 * metrics.scaleCoefficient,
     height: 40 * metrics.scaleCoefficient,
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 6,
-    elevation: 5,
   },
   backIcon: {
     color: colors.white,

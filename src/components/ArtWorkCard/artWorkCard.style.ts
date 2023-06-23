@@ -52,10 +52,8 @@ export default StyleSheet.create({
     right: 14 * metrics.scaleCoefficient,
     width: 34 * metrics.scaleCoefficient,
     height: 34 * metrics.scaleCoefficient,
-    borderRadius: 17 * metrics.scaleCoefficient,
-    backgroundColor: colors.blackTransparent,
   },
   favIcon: {
-    fontSize: 18 * metrics.scaleCoefficient,
+    fontSize: 20 * metrics.scaleCoefficient,
   },
 });
