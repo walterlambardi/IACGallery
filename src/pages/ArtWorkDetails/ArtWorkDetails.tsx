@@ -26,14 +26,29 @@ import FavIcon from '../../components/FavIcon';
 import BackIcon from '../../components/BackIcon';
 import Share from 'react-native-share';
 import Button from '../../components/Button';
+import useTextToSpeech from '../../hooks/useTextToSpeech';
 
 export type CreateAccountProps = NativeStackScreenProps<
   RootStackParams,
   Pages.ARTWORK_DETAILS
 >;
 
+const INTRO_WORDS = [
+  'Introducing to the audience',
+  'Making a presentation of',
+  'Demonstrating',
+  'Exhibiting',
+  'Unveiling',
+  'Displaying',
+  'Revealing',
+  'Showcasing',
+  'Introducing',
+  'Presenting',
+];
+
 const ArtWorkDetails = ({ route }: CreateAccountProps) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const { speak } = useTextToSpeech();
   const { artWork } = route.params;
   const { id, title, image_id, artist_display, provenance_text } = artWork;
   const resourceImgUrl = useResourceImageUrl();
@@ -60,6 +75,16 @@ const ArtWorkDetails = ({ route }: CreateAccountProps) => {
       console.error(error.message);
     }
   }, [artWorkImage, title]);
+
+  function getRandomNumber(max: number): number {
+    return Math.floor(Math.random() * max);
+  }
+
+  const handleSpeak = useCallback(() => {
+    const i = getRandomNumber(INTRO_WORDS.length);
+    const firstWord = INTRO_WORDS[i];
+    return speak(`${firstWord} ${title} by artist ${artist_display}`);
+  }, [artist_display, speak, title]);
 
   return (
     <View style={styles.container}>
@@ -118,6 +143,12 @@ const ArtWorkDetails = ({ route }: CreateAccountProps) => {
         )}
 
         <Button title="Share" onPress={onShare} buttonStyle={styles.shareBtn} />
+
+        <Button
+          title="Speak"
+          onPress={handleSpeak}
+          buttonStyle={styles.shareBtn}
+        />
 
         <Text style={styles.provenance}>{copies.artWorkMockDetail}</Text>
         <Text style={styles.provenance}>{copies.artWorkMockDetail}</Text>
